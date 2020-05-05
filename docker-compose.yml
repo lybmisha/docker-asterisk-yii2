@@ -1,0 +1,59 @@
+version: '3'
+
+services: 
+    asterisk:
+        build:
+            context: .
+            dockerfile: docker/Asterisk.Dockerfile
+        ports:
+            - "5060:5060/udp"
+            - "5060:5060/tcp"
+            - "10000-10099:10000-10099/udp"
+            - "8088:8088"
+            - "8089:8089"
+        volumes: 
+            - ./docker/etc/odbc.ini:/etc/odbc.ini
+            - ./docker/spool/asterisk:/var/spool/asterisk
+            - ./docker/log/asterisk:/var/log/asterisk
+            - ./docker/asterisk/modules.conf:/etc/asterisk/modules.conf
+            - ./docker/asterisk/res_odbc.conf:/etc/asterisk/res_odbc.conf
+            - ./docker/etc/odbcinst.ini:/etc/odbcinst.ini
+            - ./docker/asterisk/extconfig.conf:/etc/asterisk/extconfig.conf
+            - ./docker/asterisk/extensions.conf:/etc/asterisk/extensions.conf
+            - ./docker/asterisk/cdr_adaptive_odbc.conf:/asterisk/cdr_adaptive_odbc.conf
+            - ./docker/asterisk/sip.conf:/etc/asterisk/sip.conf
+        links: 
+            - mysql
+    
+    mysql:
+        image: mysql:8.0.2
+        command: --innodb_use_native_aio=0
+        environment: 
+            MYSQL_USER: mysql
+            MYSQL_PASSWORD: mysql
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: mysql
+        ports: 
+            - "3306:3306"
+        volumes: 
+            - "./docker/mysql_data:/var/lib/mysql:rw"
+    
+    nginx:
+        build:
+            context: .
+            dockerfile: docker/Nginx.Dockerfile
+        ports:
+            - 80:80
+        volumes: 
+            - ./yii2:/var/www/yii
+        links:
+            - fpm
+
+    fpm:
+        build:
+            context: .
+            dockerfile: docker/Fpm.Dockerfile
+        volumes: 
+            - ./yii2:/var/www/yii
+        links: 
+            - mysql
