@@ -57,3 +57,8 @@ services:
             - ./yii2:/var/www/yii
         links: 
             - mysql
+
+    yii2:
+        image: yiisoftware/yii2-php:7.3-fpm
+        volumes: 
+            - ./yii2:/var/www/yii
