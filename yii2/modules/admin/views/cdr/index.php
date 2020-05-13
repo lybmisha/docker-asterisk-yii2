@@ -26,8 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'accountcode',
+            //'id',
+            //'accountcode',
             'src',
             'dst',
             'dcontext',
@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'lastapp',
             //'lastdata',
             //'start',
-            //'answer',
+            'answer',
             //'end',
             //'duration',
             //'billsec',

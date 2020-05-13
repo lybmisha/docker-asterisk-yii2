@@ -64,15 +64,15 @@ class SippeersSearch extends Sippeers
             'lastms' => $this->lastms,
             'busylevel' => $this->busylevel,
             'maxcallbitrate' => $this->maxcallbitrate,
-            'session-expires' => $this->session-expires,
-            'session-minse' => $this->session-minse,
+           // 'session-expires' => $this->session-expires,
+           //'session-minse' => $this->session-minse,
             'rtptimeout' => $this->rtptimeout,
             'rtpholdtimeout' => $this->rtpholdtimeout,
             'timert1' => $this->timert1,
             'timerb' => $this->timerb,
             'qualifyfreq' => $this->qualifyfreq,
             'rtpkeepalive' => $this->rtpkeepalive,
-            'call-limit' => $this->call-limit,
+           // 'call-limit' => $this->call-limit,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
@@ -113,8 +113,8 @@ class SippeersSearch extends Sippeers
             ->andFilterWhere(['like', 'videosupport', $this->videosupport])
             ->andFilterWhere(['like', 'rfc2833compensate', $this->rfc2833compensate])
             ->andFilterWhere(['like', 'mailbox', $this->mailbox])
-            ->andFilterWhere(['like', 'session-timers', $this->session-timers])
-            ->andFilterWhere(['like', 'session-refresher', $this->session-refresher])
+           // ->andFilterWhere(['like', 'session-timers', $this->session-timers])
+           // ->andFilterWhere(['like', 'session-refresher', $this->session-refresher])
             ->andFilterWhere(['like', 't38pt_usertpsource', $this->t38pt_usertpsource])
             ->andFilterWhere(['like', 'regexten', $this->regexten])
             ->andFilterWhere(['like', 'fromdomain', $this->fromdomain])
