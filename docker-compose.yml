@@ -63,3 +63,13 @@ services:
         image: yiisoftware/yii2-php:7.3-fpm
         volumes: 
             - ./yii2:/var/www/yii
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        links: 
+            - mysql:mysql
+        ports:
+                - 8081:80
+        environment:
+            PMA_HOST: mysql
+            MYSQL_ROOT_PASSWORD: root            

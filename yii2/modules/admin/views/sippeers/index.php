@@ -12,10 +12,10 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="sippeers-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1>Абоненты</h1>
 
     <p>
-        <?= Html::a('Create Sippeers', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'ipaddr',
             'port',
-            'regseconds',
+            //'regseconds',
             //'defaultuser',
             //'fullcontact',
             //'regserver',
@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'lastms',
             //'host',
             //'type',
-            //'context',
+            'context',
             //'permit',
             //'deny',
             //'secret',
@@ -116,7 +116,8 @@ $this->params['breadcrumbs'][] = $this->title;
             //'path',
             //'supportpath',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+            'header'=>'Действия'],
         ],
     ]); ?>
 

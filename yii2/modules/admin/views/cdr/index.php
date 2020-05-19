@@ -12,10 +12,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cdr-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    
 
+    <h1>Статистика звонков</h1>
     <p>
-        <?= Html::a('Create Cdr', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -37,11 +38,11 @@ $this->params['breadcrumbs'][] = $this->title;
             //'lastapp',
             //'lastdata',
             //'start',
-            'answer',
+            //'answer',
             //'end',
             //'duration',
-            //'billsec',
-            //'disposition',
+            'billsec',
+            'disposition',
             //'amaflags',
             //'userfield',
             //'uniqueid',
@@ -49,7 +50,8 @@ $this->params['breadcrumbs'][] = $this->title;
             //'peeraccount',
             //'sequence',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+            'header'=>'Действия'],
         ],
     ]); ?>
 

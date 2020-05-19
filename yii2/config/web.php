@@ -9,6 +9,7 @@ $config = [
     'bootstrap' => ['log'],
     'language' => 'ru', 
     'name'=>'Управление АТС',
+    'homeUrl' => '/admin',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -16,6 +17,7 @@ $config = [
     'components' => [
         'authManager' => [
             'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
+            
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -62,6 +64,7 @@ $config = [
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module',
+            'layout' => 'main'
         ],
         'rbac' => [
             'class' => 'mdm\admin\Module',
@@ -82,7 +85,7 @@ $config = [
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
-            'site/*',
+            'site/login',
             //'admin/*',
             //'rbac/*',
            // 'some-controller/some-action',
