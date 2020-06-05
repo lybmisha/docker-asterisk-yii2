@@ -15,9 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
     
 
     <h1>Статистика звонков</h1>
-    <p>
+    <!--<p>
         <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    </p>-->
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -50,7 +50,8 @@ $this->params['breadcrumbs'][] = $this->title;
             //'peeraccount',
             //'sequence',
 
-            ['class' => 'yii\grid\ActionColumn',
+            ['class' => 'yii\grid\ActionColumn', 
+            'template' => '{view} {delete}',
             'header'=>'Действия'],
         ],
     ]); ?>

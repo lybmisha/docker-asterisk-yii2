@@ -30,7 +30,7 @@ class Extensions extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['context', 'exten', 'priority', 'app', 'appdata'], 'required'],
+            [['context', 'exten', 'priority', 'app'], 'required'],
             [['priority'], 'integer'],
             [['context', 'exten', 'app'], 'string', 'max' => 40],
             [['appdata'], 'string', 'max' => 256],

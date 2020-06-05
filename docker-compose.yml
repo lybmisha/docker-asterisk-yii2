@@ -23,6 +23,7 @@ services:
             - ./docker/asterisk/cdr_adaptive_odbc.conf:/etc/asterisk/cdr_adaptive_odbc.conf
             - ./docker/asterisk/sip.conf:/etc/asterisk/sip.conf
             - ./docker/asterisk/cdr_mysql.conf:/etc/asterisk/cdr_mysql.conf
+            - ./docker/asterisk/queues.conf:/etc/asterisk/queues.conf
         links: 
             - mysql
     

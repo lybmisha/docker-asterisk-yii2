@@ -10,11 +10,20 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Меню', 'options' => ['class' => 'header']],
-                    ['label' => 'Главная', 'url' => ['/admin/default/index']],
-                    ['label' => 'Абоненты', 'url' => ['/admin/sippeers/index']],
-                    ['label' => 'Правила звонков', 'url' => ['/admin/extensions/index']],
-                    ['label' => 'Статистика звонков', 'url' => ['/admin/cdr/index']],
-                    ['label' => 'Управление доступом', 'url' => ['/rbac/default/index']],
+                    ['label' => 'Главная', 'icon' => 'home', 'url' => ['/admin/default/index']],
+                    ['label' => 'Абоненты', 'icon' => 'address-book', 'url' => ['/admin/sippeers/index']],
+                    ['label' => 'Правила звонков', 'icon' => 'phone', 'url' => ['/admin/extensions/index']],
+                    [
+                        'label' => 'Настройка очередей',
+                        'icon' => 'share',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Очереди', 'icon' => 'file-code-o', 'url' => ['/admin/queues/index'],],
+                            ['label' => 'Агенты очереди', 'icon' => 'dashboard', 'url' => ['/admin/queue_members/index'],],
+                        ],
+                    ],
+                    ['label' => 'Статистика звонков', 'icon' => 'book', 'url' => ['/admin/cdr/index']],
+                    ['label' => 'Управление доступом', 'icon' => 'expeditedssl', 'url' => ['/rbac/default/index']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Дополнительно',
